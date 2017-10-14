@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3-1</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    div {
+      width: 700px;
+      margin: 60px auto;
+    }
+    p {
+      margin: 10px;
+      font: 20px/50px Microsoft Yahei;
+    }
+    input {
+      height: 50px;
+      width: 400px;
+      margin: 0 10px;
+      padding: 0 5px;
+      border: 1px solid #999;
+      border-radius: 10px;
+      font: 26px/50px Microsoft Yahei;
+    }
+    button {
+      width: 100px;
+      height: 50px;
+      background-color: #45f;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font: 30px/50px Microsoft Yahei;
+    }
+    #txt {
+      display: inline-block;
+      margin-left: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p><label for="in">名称
+        <input type="text" id="in">
+        <button id="btn">验证</button>
+      </label><br/><span id="txt">必填，长度为4-16字符</span></p>
+  </div>
+  <script>
+    var input = document.getElementById('in');
+    var btn = document.getElementById('btn');
+    var result = document.getElementById('txt');
+
+    function tst(val){
+      var txtLen = 0;
+      var inLen = val.match(/[^ -~]/g) == null ? val.length : val.length + val.match(/[^ -~]/g).length;
+
+      if(inLen>=4 && inLen <=16){
+        input.style.borderColor = "#0f0";
+        result.innerHTML = "格式正确";
+        result.style.color = "#0f0";
+      }else{
+        input.style.borderColor = "#f00";
+        result.innerHTML = "格式错误";
+        result.style.color = "#f00";
+      };
+    }
+
+    btn.addEventListener("click",function(){
+      tst((input.value).trim());
+    },false)
+  </script>
+</body>
+</html>

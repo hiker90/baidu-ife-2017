@@ -1,0 +1,56 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+$font-color: #E74F4D;
+$bg-color: #FFF;
+$title-color: #323333;
+$txt-color: #909090;
+
+$com-width: 1280px;
+
+$hei: 黑体;
+$ya: Miscrosoft Yahei;
+$song: 宋体;
+
+#container{
+  width:$com-width;
+  margin: 0 auto;
+}
+
+@mixin fl-par{
+  float: left;
+  width: 100%;
+}
+@mixin bg($cor: #FFF){
+  background-color: $cor;
+}
+@mixin bg-img($url){
+  background: url($url) left center no-repeat;
+}
+@mixin ver-mid($par-h){
+  display:inline-block;
+  height: $par-h;
+  line-height: $par-h;
+}
+
+a {
+  text-decoration: none;
+  color: $title-color;
+}
+html>body{
+  @include bg(#ccc);
+}
+#header{
+  @include fl-par;
+  height: 60px;
+  @include bg();
+  &>h1{
+    @include bg-img("../../1-7img/logo.png");
+    @include ver-mid(60px);
+    padding-left: 35px;
+  }
+}

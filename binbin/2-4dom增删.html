@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2-4</title>
+  <style>
+    ul {
+      height: 70px;
+      border:2px solid #CCC;
+    }
+    li {
+      list-style: none;
+      float: left;
+      padding: 10px;
+      background-color: #f00;
+      color: #FFF;
+      font-size: 24px;
+      line-height: 1em;
+      margin:10px;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <input type="text" id="add-in">
+    <button id="l-a">左添加</button>
+    <button id="r-a">右添加</button>
+    <button id="l-d">左删除</button>
+    <button id="r-d">右删除</button>
+  </p>
+  <ul id="output">
+    <li>10</li>
+    <li>3</li>
+    <li>7</li>
+    <li>12</li>
+    <li>11</li>
+    <li>30</li>
+  </ul>
+  <script>
+    var output = document.getElementById('output');
+
+    function add(der){
+
+      var newli = document.createElement('li');
+      var txt = document.getElementById('add-in').value;
+      if (txt){
+        newli.innerHTML = txt;
+        if (der) {
+          output.insertBefore(newli,output.childNodes[0]);
+        }else{
+          output.appendChild(newli);
+        }
+        document.getElementById('add-in').value = '';
+      }
+    }
+
+    function del(der){
+      var li = output.getElementsByTagName('li');
+      if(li){
+        if (der) {
+          output.removeChild(li[0]);
+        }else{
+          output.removeChild(li[li.length-1]);
+        }
+      }
+    }
+
+    function init(){
+      var la = document.getElementById('l-a');
+      var ra = document.getElementById('r-a');
+      var ld = document.getElementById('l-d');
+      var rd = document.getElementById('r-d');
+
+      la.onclick = function(){add(true);}
+      ra.onclick = function(){add(false);}
+      ld.onclick = function(){del(true);}
+      rd.onclick = function(){del(false);}
+    }
+    init();
+  </script>
+</body>
+</html>

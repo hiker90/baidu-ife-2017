@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-6</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        #main {
+            width: 1000px;
+            margin: 60px auto;
+            text-align: center;
+        }
+        table {
+            display: inline-block;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #999;
+            font: 16px 黑体;
+            color: #fff;
+        }
+        td {
+            font: 16px 黑体;
+            color: #333;
+        }
+        th, td {
+            width: 120px;
+            border: 1px solid #ccc;
+        }
+        th.sortable {
+            background-image: url(triangle.png);
+            background-repeat: no-repeat;
+            background-position: 90% center;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        window.onload = function(){
+            // 表格数据
+            var tableContent = [
+            {name: "姓名",math: "数学",chinese: "语文",english: "英语"},
+            {name: "小A",math: "90",chinese: "87",english: "92"},
+            {name: "小B",math: "86",chinese: "72",english: "96"},
+            {name: "小C",math: "92",chinese: "90",english: "99"},
+            {name: "小D",math: "76",chinese: "85",english: "91"},
+            {name: "小E",math: "96",chinese: "90",english: "90"}
+            ];
+            // 创建表格
+            function initTable(datalist,parentNode){
+                var table = document.createElement("table");
+                var th = '',td = '',tr = [];
+                var tHead = document.createElement("tr");
+
+                for(i in datalist[0]){
+                    th = document.createElement("th");
+                    th.innerHTML = datalist[0][i];
+                    if(i != "name"){
+                       th.className = "sortable";
+                    }
+
+                    th.item = i;
+                    tHead.appendChild(th);
+                };
+
+                table.appendChild(tHead);
+
+                for(var n=1;n<datalist.length;n++){
+                    td = "";
+                    for(j in datalist[n]){
+                        td += "<td>" + datalist[n][j] + "</td>";
+                    }
+                    tr.push(td);
+                };
+
+                for(var m=0;m<tr.length;m++){
+                    var tBody = document.createElement("tr");
+                    tBody.innerHTML = tr[m];
+                    table.appendChild(tBody);
+                };
+                parentNode.appendChild(table);
+            };
+            // 表格刷新
+            function refresh(col){
+                var tr = main.getElementsByTagName("tr");
+                for(var i=1;i<tr.length;i++){
+
+                    var td = tr[i].getElementsByTagName("td");
+                    for(var j=0;j<td.length;j++){
+                        var item = tr[0].getElementsByTagName("th")[j].item;
+                        td[j].innerHTML = tableContent[i][item];
+                    }
+                }
+            }
+            // 数据排序（大到小）
+            function sortDate(col){
+                for(var i=1; i<tableContent.length; i++){
+                    for(var j=i+1; j<tableContent.length; j++){
+                        if (tableContent[i][col]< tableContent[j][col]){
+                            var temp = tableContent[i];
+                            tableContent[i] = tableContent[j];
+                            tableContent[j] = temp;
+                        };
+                    };
+                };
+            };
+
+            // 初始化表格
+            var main = document.getElementById("main");
+            initTable(tableContent,main);
+            // 表头点击事件
+            var sortI = main.getElementsByTagName("th");
+            for(var n=1;n<sortI.length;n++){
+                sortI[n].addEventListener("click",function(e){
+                    var e = e || window.event;
+                    e.stopPropagation();
+                    var itemName = this.item;
+                    sortDate(itemName);
+                    refresh(itemName);
+                },false)
+            };
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2-4</title>
+  <style>
+    ul {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      /*width: 800px;*/
+      border:2px solid #CCC;
+    }
+    li {
+      flex: 1;
+      list-style: none;
+      background-color: #f00;
+      color: #FFF;
+      font-size: 24px;
+      line-height: 1em;
+      margin:5px;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <input type="text" id="add-in">
+    <button id="l-a">左添加</button>
+    <button id="r-a">右添加</button>
+    <button id="l-d">左删除</button>
+    <button id="r-d">右删除</button>
+  </p>
+  <ul id="output">
+    <li>10</li>
+    <li>3</li>
+    <li>7</li>
+    <li>12</li>
+    <li>11</li>
+    <li>30</li>
+  </ul>
+  <script>
+    // 增加
+    function add(der){
+      var li = output.getElementsByTagName('li');
+      var newli = document.createElement('li');
+      var txt = document.getElementById('add-in').value;
+      var reg = /^[1-9][0-9]$/;
+      if(txt){
+        if (li.length < 60){
+          newli.innerHTML = txt;
+          if (der) {
+            output.insertBefore(newli,output.childNodes[0]);
+          }else{
+            output.appendChild(newli);
+          }
+          document.getElementById('add-in').value = '';
+        }else{
+          alert("数字标签个数超限（60）");
+        }
+      }
+    }
+    // 删除
+    function del(der){
+      var li = output.getElementsByTagName('li');
+      if(li){
+        if (der) {
+          output.removeChild(li[0]);
+        }else{
+          output.removeChild(li[li.length-1]);
+        }
+      }
+    }
+    // 大到小排序
+    function sort() {
+      var li = output.getElementsByTagName('li');
+      var data = [];
+      for(var i=0; i<li.length; i++) {
+        data.push(parseInt(li[i].innerHTML));
+      }
+      for(var k=0; k<data.length; k++){
+        for(var j=k+1; j<data.length; j++){
+          if (data[k]< data[j]){
+            var temp = data[k];
+            data[k] = data[j];
+            data[j] = temp;
+          }
+        }
+      }
+      for(var n=0; n<li.length; n++) {
+        li[n].innerHTML = data[n];
+      }
+    }
+    // 数据可视化
+    function display(){
+      var li = output.getElementsByTagName('li');
+      for(var i=0; i<li.length; i++) {
+        li[i].style.height = parseInt(li[i].innerHTML) + "px";
+      }
+    }
+    // 初始化
+    function init(){
+      // var addin = document.getElementById('add-in');
+      var la = document.getElementById('l-a');
+      var ra = document.getElementById('r-a');
+      var ld = document.getElementById('l-d');
+      var rd = document.getElementById('r-d');
+
+      la.onclick = function(){add(true);sort();display();}
+      ra.onclick = function(){add(false);sort();display();}
+      ld.onclick = function(){del(true);}
+      rd.onclick = function(){del(false);}
+
+    }
+    // 主函数
+    window.onload=function(){
+      var output = document.getElementById('output');
+      sort();
+      display();
+      init();
+    }
+  </script>
+</body>
+</html>

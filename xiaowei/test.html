@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      box-sizing: border-box;
+      background-color: #eee;
+      display: flex;
+      padding: 20px;
+    }
+    .item {
+      box-sizing: border-box;
+      padding: 20px;
+      width: 150px;
+      margin: 20px;
+    }
+    #item1 {
+      border: 1px solid #f00;
+      height: 120px;
+    }
+    #item2 {
+      border: 1px solid #f00;
+      height: 100px;
+    }
+    #item3 {
+      border: 1px solid #f00;
+      height: 40px;
+    }
+    #item4 {
+      border: 1px solid #0f0;
+      height: 200px;
+    }
+    @media screen and (min-width: 640px) {
+      .box {
+        justify-content: space-between;
+        align-items: center;
+      }
+      .item {
+
+      }
+    }
+    @media screen and (max-width: 639px) {
+      .box {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+      }
+      #item4 {
+        -webkit-order: -1;
+        -moz-order: -1;
+        -ms-order: -1;
+        -o-order: -1;
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item" id="item1"></div>
+    <div class="item" id="item2"></div>
+    <div class="item" id="item3"></div>
+    <div class="item" id="item4"></div>
+  </div>
+</body>
+</html>

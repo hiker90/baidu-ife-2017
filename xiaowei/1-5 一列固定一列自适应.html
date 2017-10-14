@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>1-5</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html>body {
+        width: 100%;
+      }
+      /*页眉、页脚*/
+      #header, #footer {
+        float: left;
+        display: block;
+        width: 100%;
+      }
+      #header {
+        padding: 10px 20px;
+        line-height: 30px;
+        background-color: #333;
+      }
+      #header h1 {
+        float: left;
+        color: #FFF;
+      }
+      #header ul {
+        float: right;
+      }
+      #header ul>li {
+        float: left;
+        margin-left: 20px;
+      }
+      #header li>a {
+        font-size: 14px;
+        color: #FFF;
+        text-decoration: none;
+      }
+      #footer {
+        color: #fff;
+        padding: 10px 20px 30px;
+        background-color: #000;
+        text-align: center;
+      }
+      /*内容区*/
+      #content {
+        float: left;
+        width: 100%;
+        padding: 20px;;
+        background-color: #eee;
+      }
+      #content .article {
+        float: left;
+        width: 100%;
+      }
+      #content .main {
+        margin-right: 420px;
+      }
+      .aside {
+        float: left;
+        width: 400px;
+        margin-left: -400px;
+      }
+      /*文章区*/
+      .section, .aside {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #999;
+        box-shadow: 2px 2px 2px #888;
+        background-color: #fff;
+      }
+      .section {
+        float: left;
+        width: 100%;
+      }
+      .section h2, .section h3, .section h5, .section p, .section li{
+        line-height: 2em;
+      }
+      .section h3{
+        color: #333;
+      }
+      .section h5 {
+        color: #666;
+      }
+      .section>p {
+        text-indent: 2em;
+      }
+      .section> img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+      }
+      .section ul>li {
+        list-style: none;
+        text-indent: 2em;
+      }
+      .section .img>li {
+        float: left;
+        display: block;
+        width: 160px;
+        height: 160px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #999;
+        text-align: center;
+        text-indent: 0;
+      }
+      .img li>img {
+        width: 100%;
+      }
+      .section ol {
+        padding-left: 2em;
+      }
+      .section table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .section table th, .section table td {
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: left;
+      }
+      .section table th {
+        color: #fff;
+        background-color: #333;
+        font-weight: bold;
+      }
+      .section table tr:last-child td {
+        font-weight: bold;
+        background-color: #ccc;
+      }
+      /*侧边栏*/
+      .aside {
+        line-height: 2em;
+      }
+      .aside h4 {
+        display: inline-block;
+        border-left: 3px solid #ccc;
+        padding-left: 7px;
+      }
+      .aside form {
+        padding-left: 10px;
+      }
+      .aside table {
+        font-size: 14px;
+      }
+      .aside p {
+        color: #999;
+      }
+      .aside table td {
+        padding: 0 10px 5px;
+        vertical-align: top;
+      }
+      .aside table tr>td:first-child {
+        text-align: right;
+      }
+      .aside table tr>td:last-child {
+        text-align: left;
+      }
+      .aside table input[type=email], .aside table input[type=password] {
+        border: 1px solid #ccc;
+        height: 1.6em;
+        line-height: 1.6em;
+        text-indent: .2em;
+      }
+      .aside table textarea {
+        padding: 5px;
+      }
+      .aside form> input {
+        display: inline-block;
+        width: 100%;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #065AC2;
+        font-size: 16px;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>网站一级标题</h1>
+      <ul>
+        <li>
+          <a href="#">导航链接一</a>
+        </li>
+        <li>
+          <a href="#">导航链接二</a>
+        </li>
+        <li>
+          <a href="#">导航链接三</a>
+        </li>
+        <li>
+          <a href="#">导航链接四</a>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <div class="article">
+        <div class="main">
+          <div class="section">
+            <h2>文章一级标题</h2>
+            <h3>文章二级标题</h3>
+            <h5><span>文章作者</span><span>文章发表时间</span></h5>
+            <p>「人不敬我，是我無才；我不敬人，是我無德；人不容我，是我無能；我不容人，是我無量；人不助我，是我無為；我不助人，是我無善！」很棒的一段話，值得深思自省。</p>
+            <p>在這年頭，有些人遇事不自省，<a href="http://www.baidu.com">点此搜索</a>，錯都不在自己，全是別人的錯，反觀有品德的人，凡事自省已身，修身養性.</p>
+            <img src="1-5.jpg" />
+            <p>风，吹不散满心惆怅，雨，诉不尽无边凄凉。昨日春宵已成殇，三千青丝随风扬。唯想几世痴心，换今生回眸为君笑，何必苦求执手到老。若浮生过半，红颜相忘，知己各一方，可记当年悲喜共享。 如果真诚是一种伤害，<b>我选择谎言</b>；如果谎言是一种伤害，<a href="http://www.baidu.com" target="_blank">点此搜索</a>我选择沉默；如果沉默是一种伤害，我选择离开。有的东西你再喜欢也不会属于你，有的东西你再留恋也注定要放弃的。男人哭了，是因为他真的爱了；女人哭了，是因为她真的放弃了。爱一个人不一定要拥有，但拥有了就一定要好好的去珍惜。</p>
+          </div>
+          <div class="section">
+            <h2>另一篇文章一级标题</h2>
+            <h3>文章二级标题</h3>
+            <h5><span>文章作者</span><span>文章发表时间</span></h5>
+            <p>这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落<br /> 这是一个很长的段落,这是一个很长的段落,<a href="http://www.baidu.com">点此搜索</a>这是一个很长的段落,<b>这是一个很长的段落</b>,这是一个很长的段落,<br/>这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落</p>
+            <img src="1-5.jpg" class="img" />
+            <ul class="ul">
+              <li>列表项一</li>
+              <li>列表项二</li>
+              <li>列表项三</li>
+            </ul>
+          </div>
+          <div class="section">
+            <h2>图片</h2>
+            <ul class="img">
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+              <li>
+                <p>好看的图片</p>
+                <img src="1-5.jpg" />
+              </li>
+            </ul>
+          </div>
+          <div class="section">
+            <h2>最后一篇文章一级标题</h2>
+            <h3>文章二级标题</h3>
+            <h5><span>文章作者</span><span>文章发表时间</span></h5>
+            <ol>
+              <li>排名1</li>
+              <li>排名2</li>
+              <li>排名3</li>
+            </ol>
+            <table>
+              <tr>
+                <th>表头</th>
+                <th>表头</th>
+                <th>表头</th>
+              </tr>
+              <tr>
+                <td>表内容单元格</td>
+                <td>表内容单元格</td>
+                <td>
+                  <a href="">操作</a>
+                </td>
+              </tr>
+              <tr>
+                <td>表内容单元格</td>
+                <td>表内容单元格</td>
+                <td>
+                  <a href="">操作</a>
+                </td>
+              </tr>
+              <tr>
+                <td>表内容单元格</td>
+                <td>表内容单元格</td>
+                <td>
+                  <a href="">操作</a>
+                </td>
+              </tr>
+              <tr>
+                <td>表内容单元格</td>
+                <td>表内容单元格</td>
+                <td>
+                  <a href="">操作</a>
+                </td>
+              </tr>
+              <tr>
+                <td>总计</td>
+                <td colspan="2">1000</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="aside">
+        <h4>这是侧栏的标题</h4>
+        <form action="" method="post">
+          <table>
+            <tr>
+              <td><label>请输入邮箱地址</label></td>
+              <td><input type="email" placeholder="这是一个文本输入框" /><p>邮箱地址请按要求格式输入</p></td>
+            </tr>
+            <tr>
+              <td><label>请输入密码</label></td>
+              <td><input type="password" placeholder="这是一个文本输入框"/></td>
+            </tr>
+            <tr>
+              <td><label>请重复密码</label></td>
+              <td><input type="password" placeholder="这是一个文本输入框"/><p>密码请为6-16位英文数字</p></td>
+            </tr>
+            <tr>
+              <td><label>性别</label></td>
+              <td><input type="radio" checked="checked" name="gender" /> 男
+          <input type="radio" name="gender" /> 女</td>
+            </tr>
+            <tr>
+              <td><label>城市</label></td>
+              <td><select>
+            <option>北京</option>
+            <option>上海</option>
+            <option>广州</option>
+            <option>深圳</option>
+            <option>杭州</option>
+          </select></td>
+            </tr>
+            <tr>
+              <td><label>爱好</label></td>
+              <td><input type="checkbox" /> 运动
+          <input type="checkbox" /> 艺术
+          <input type="checkbox" /> 科学</td>
+            </tr>
+            <tr>
+              <td><label>个人描述</label></td>
+              <td><textarea placeholder="这是一个多行输入框,输入您的个人描述" rows="6"></textarea></td>
+            </tr>
+          </table>
+          <input type="submit" value="确认提交" />
+        </form>
+      </div>
+    </div>
+    <div id="footer">
+      <p>版权所有©</p>
+    </div>
+  </body>
+</html>

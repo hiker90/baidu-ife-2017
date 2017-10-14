@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .gray {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 200px;
+      margin-left: -200px;
+      margin-top: -100px;
+      background-color: #ccc;
+    }
+    .yellow1, .yellow2 {
+      position: absolute;
+      background-color: #FC0;
+      width: 50px;
+      height: 50px;
+    }
+    .yellow1 {
+      left: 0;
+      top: 0;
+      border-radius: 0 0 100% 0;
+    }
+    .yellow2 {
+      right: 0;
+      bottom: 0;
+      border-radius: 100% 0 0 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gray">
+    <div class="yellow1"></div>
+    <div class="yellow2"></div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-7</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        #root{
+            height: 300px;
+            width: 1200px;
+            padding: 15px;
+            margin:60px auto;
+            border: 1px solid #444;
+            overflow: auto;
+            background-color: #FFFFFF;
+            -webkit-transition: background-color 1s;
+            -o-transition: background-color 1s;
+            transition: background-color 1s;
+        }
+        .second{
+            display: inline-block;
+            height: 220px;
+            padding: 10px;
+            margin:10px 0;
+            border: 1px solid #444;
+            overflow: auto;
+            background-color: #FFFFFF;
+            -webkit-transition: background-color 1s;
+            -o-transition: background-color 1s;
+            transition: background-color 1s;
+        }
+        .third{
+            display: inline-block;
+            height: 180px;
+            padding: 10px;
+            margin:10px 0;
+            border: 1px solid #444;
+            overflow: auto;
+            background-color: #FFFFFF;
+            -webkit-transition: background-color 1s;
+            -o-transition: background-color 1s;
+            transition: background-color 1s;
+        }
+        .forth{
+            display: inline-block;
+            height: 140px;
+            padding: 5px;
+            margin:10px 0;
+            border: 1px solid #444;
+            overflow: auto;
+            background-color: #FFFFFF;
+            -webkit-transition: background-color 1s;
+            -o-transition: background-color 1s;
+            transition: background-color 1s;
+        }
+        .fifth {
+            display: inline-block;
+            height: 100px;
+            padding: 5px;
+            margin:10px 0;
+            border: 1px solid #444;
+            overflow: auto;
+            background-color: #FFFFFF;
+            -webkit-transition: background-color 1s;
+            -o-transition: background-color 1s;
+            transition: background-color 1s;
+        }
+        .control{
+            width: 300px;
+            height: 30px;
+            margin: 30px auto;
+            overflow: auto;
+            text-align: center;
+        }
+        .control input{
+            width: 25%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    super
+    <div class="second">
+        can
+        <div class="third">
+            apple
+            <div class="forth">pear</div>
+            <div class="forth">pig</div>
+            <div class="forth">cola</div>
+            <div class="forth">soccer</div>
+        </div>
+        <div class="third">phone</div>
+        <div class="third">
+            <div class="forth">book</div>
+            <div class="forth">school</div>
+        </div>
+    </div>
+    <div class="second">
+        note
+        <div class="third">
+            human
+            <div class="forth">code</div>
+            <div class="forth">operate</div>
+            <div class="forth">man</div>
+        </div>
+        <div class="third">
+            program
+            <div class="forth">
+                element
+                <div class="fifth">cat</div>
+            </div>
+            <div class="forth">glass</div>
+        </div>
+    </div>
+    <div class="second">
+        fish
+    </div>
+</div>
+
+<div class="control">
+    <input type="text" id="search" style="width:140px"><input type="button" id="preOrder" value="搜索">
+</div>
+<script>
+    var root = document.getElementById("root");
+    var btnPreOrder = document.getElementById("preOrder");
+    var timer = 0;
+    var result = false;
+
+    function showNode(node) {
+        setTimeout(function(){
+            node.style.backgroundColor = "#f33";
+        },timer+=500);
+        setTimeout(function(){
+            node.style.backgroundColor = "#fff";
+        },timer+=500);
+        setTimeout(function(){
+            search(node);
+        },timer);
+    }
+
+    function preOrder(root) {
+        if(root){
+            showNode(root);
+            for(var i=0;i<root.children.length;i++){
+               preOrder(root.children[i]);
+            }
+        };
+    }
+
+    function search(root){
+        var searchTxt = document.getElementById('search').value;
+        var patt = new RegExp(searchTxt,"g");
+        if(searchTxt){
+            for(var i=0;i<root.childNodes.length;i++){
+                if(root.childNodes[i].nodeType == 3 && patt.test(root.childNodes[i].nodeValue))
+                {
+                    root.style.backgroundColor = "#f33";
+                    result = true;
+                }
+            }
+        }
+    }
+
+    btnPreOrder.addEventListener("click",function(){
+        timer = 0;
+        result = false;
+        preOrder(root);
+        setTimeout(function(){if(!result){alert("搜索无结果");};},timer+500);
+    },false);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3-5</title>
+  <style>
+    * {margin: 0; padding: 0;}
+    html body {
+      width: 100%;
+      position: relative;
+    }
+    #main {
+      width: 100%;
+      height: 1600px;
+    }
+    #mask {
+      display: none;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(100,100,100,0.7);
+      -webkit-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+    }
+    #modal {
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      width: 600px;
+      min-height: 300px;
+      margin: -150px 0 0 -300px;
+      background-color: #fff;
+      border: 2px solid #333;
+      color: #fff;
+      overflow: hidden;
+      -webkit-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+    }
+    #modal h3 {
+      display: block;
+      height: 40px;
+      font: 18px/40px 黑体;
+      background-color: #999;
+      text-indent: 1em;
+      border-bottom: 2px solid #666;
+    }
+    #modal button {
+      position: absolute;
+      width: 80px;
+      height: 36px;
+      background-color: #999;
+      color: #fff;
+      border: 1px solid #333;
+      margin-right: 10px;
+    }
+    #modal-content {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 20px;
+      color: #333;
+      font-size: 18px;
+    }
+    #confirm {
+      bottom: 20px;
+      right: 100px;
+    }
+    #cancel {
+      bottom: 20px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <button id="show">显示浮出层</button>
+  </div>
+  <div id="mask">
+    <div id="modal">
+      <h3>弹窗标题</h3>
+      <div id="modal-content">弹窗信息内容</div>
+      <button id="confirm">确 认</button><button id="cancel">取 消</button>
+    </div>
+  </div>
+  <script>
+    window.onload = function(){
+      var showBtn = document.getElementById("show");
+      var mask = document.getElementById('mask');
+      var modal = document.getElementById('modal');
+      var confirmBtn = document.getElementById("confirm");
+      var cancelBtn = document.getElementById("cancel");
+
+      showBtn.onclick = function(e){
+        var e = e || window.event;
+        e.stopPropagation();
+        mask.style.display = "block";
+        setTimeout(function(){
+          modal.style.top = "50%";
+        },100);
+        document.documentElement.onclick = function(){
+          mask.style.display = "none";
+          modal.style.top = "150px";
+        };
+      };
+      confirmBtn.onclick = function(){
+        mask.style.display = "none";
+        modal.style.top = "150px";
+      };
+      cancelBtn.onclick = function(){
+        mask.style.display = "none";
+        modal.style.top = "150px";
+      };
+
+    }
+  </script>
+</body>
+</html>

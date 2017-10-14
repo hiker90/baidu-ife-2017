@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3-1</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    div {
+      width: 530px;
+      margin: 60px auto;
+    }
+    p {
+      margin: 10px;
+      font: 18px/40px Microsoft Yahei;
+      text-align: right;
+    }
+    input {
+      height: 40px;
+      width: 400px;
+      margin: 0 10px;
+      padding: 0 5px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      font: 22px/40px Microsoft Yahei;
+    }
+    input:focus {
+      border: 1px solid #77f;
+      box-shadow: 0 0 5px #77f;
+    }
+    button {
+      width: 510px;
+      height: 40px;
+      background-color: #3984E2;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font: 22px/40px Microsoft Yahei;
+    }
+    .txt {
+      display: none;
+      font: 14px/1.1 黑体;
+      color: #767676;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p><label for="user">名 称
+        <input type="text" id="user">
+        <br><span class="txt">必填，长度为4-16字符</span>
+      </label></p>
+    <p><label for="password">密 码
+        <input type="password" id="password">
+        <br><span class="txt">最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符</span>
+      </label></p>
+    <p><label for="confirm">密码确认
+        <input type="password" id="confirm">
+        <br><span class="txt">再次输入相同的密码</span>
+      </label></p>
+    <p><label for="email">邮 箱
+        <input type="email" id="email">
+        <br><span class="txt">例如 mailaddress@mail.com</span>
+      </label></p>
+    <p><label for="phone">手 机
+        <input type="tel" id="phone">
+        <span class="txt">请填写11位有效手机号码</span>
+      </label></p>
+    <p><button id="btn">提 交</button></p>
+  </div>
+  <script>
+    var inputs = document.getElementsByTagName('input');
+    var btn = document.getElementById('btn');
+    var result = [["必填，长度为4-16字符","名称可用","名称不可用"],["最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符","密码可用","密码不可用"],["再次输入相同的密码","密码输入一致","密码输入不一致"],["例如 mailaddress@mail.com","邮箱格式正确","邮箱格式错误"],["请填写11位有效手机号码","手机格式正确","手机格式不正确"]];
+
+    function tst(m){
+      var valTxt = inputs[m].value.trim();
+      var judge = false;
+      var resultTxt = inputs[m].parentNode.getElementsByTagName('span')[0];
+
+      switch (m) {
+        case 0:
+          var userLen = valTxt.match(/[^ -~]/g) == null ? valTxt.length : valTxt.length + valTxt.match(/[^ -~]/g).length;
+          if(userLen>=4 && userLen<=16){judge = true;}
+          break;
+        case 1:
+        //密码强度正则，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符
+          var patPas = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
+          if(patPas.test(valTxt)){judge = true;}
+          break;
+        case 2:
+          var patCon = inputs[m-1].value.trim();
+          if(patCon == valTxt){judge = true;}
+          break;
+        case 3:
+          var patEm = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+          if(patEm.test(valTxt)){judge = true;}
+          break;
+        case 4:
+          var patTel = /^1[34578]\d{9}$/;
+          if(patTel.test(valTxt)){judge = true;}
+          break;
+      }
+
+      if(judge){
+        inputs[m].style.borderColor = "#17A122";
+        resultTxt.innerHTML = result[m][1];
+        resultTxt.style.color = "#17A122";
+        inputs[m].judge = true;
+      }else{
+        inputs[m].style.borderColor = "#f00";
+        resultTxt.innerHTML = result[m][2];
+        resultTxt.style.color = "#f00";
+        inputs[m].judge = false;
+      };
+    }
+
+    for(var n=0;n<inputs.length;n++){
+      inputs[n].index = n;
+      inputs[n].judge = false;
+      inputs[n].addEventListener("focus",function(){
+        var span = this.parentNode.getElementsByTagName("span")[0];
+        this.style.borderColor = "#77f";
+        span.style.display = "inline-block";
+        span.style.color = "#767676";
+        span.innerHTML = result[this.index][0];
+      },false);
+      inputs[n].addEventListener("blur",function(){
+        tst(this.index);
+      },false);
+    }
+    btn.addEventListener("click",function(){
+      for(var i=0;i<inputs.length;i++){
+        if (!inputs[i].judge) {
+          alert("提交失败");
+          return;
+        }
+      }
+      alert("提交成功");
+    },false)
+  </script>
+</body>
+</html>

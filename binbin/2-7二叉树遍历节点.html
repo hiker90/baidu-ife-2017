@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-7</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        #root{
+            width: 1108px;
+            border: 2px solid #444;
+            overflow: auto;
+            background-color: #FFFFFF;
+            margin: 60px auto;
+        }
+        .second{
+            border: 1px solid #444;
+            margin: 20px 10px;
+            overflow: auto;
+            float: left;
+            background-color: #FFFFFF;
+        }
+        .third{
+            margin: 20px 10px;
+            border: 1px solid #444;
+            overflow: auto;
+            float: left;
+            background-color: #FFFFFF;
+        }
+        .forth{
+            width: 60px;
+            height: 40px;
+            border: 1px solid #444;
+            padding: 20px;
+            margin: 20px 10px;
+            overflow: auto;
+            float: left;
+            background-color: #FFFFFF;
+        }
+        .control{
+            width: 300px;
+            height: 30px;
+            margin: 30px auto;
+            overflow: auto;
+            text-align: center;
+        }
+        .control input{
+            width: 25%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div class="second">
+        <div class="third">
+            <div class="forth"></div>
+            <div class="forth"></div>
+        </div>
+        <div class="third">
+            <div class="forth"></div>
+            <div class="forth"></div>
+        </div>
+    </div>
+    <div class="second">
+        <div class="third">
+            <div class="forth"></div>
+            <div class="forth"></div>
+        </div>
+        <div class="third">
+            <div class="forth"></div>
+            <div class="forth"></div>
+        </div>
+    </div>
+</div>
+<div class="control">
+    <input type="button" value="先序遍历" id="preOrder">
+    <input type="button" value="中序遍历" id="inOrder">
+    <input type="button" value="后序遍历" id="postOrder">
+</div>
+<script>
+    var root = document.getElementById("root");
+    var btnPreOrder = document.getElementById("preOrder");
+    var btnInOrder = document.getElementById("inOrder");
+    var btnPostOrder = document.getElementById("postOrder");
+    var timer = 0;
+
+    function showNode(node) {
+        setTimeout(function(){
+            node.style.backgroundColor = "#f33";
+        },timer+=500);
+        setTimeout(function(){
+            node.style.backgroundColor = "#fff";
+        },timer+=500)
+    }
+    function preOrder(root) {
+        if(root){
+            showNode(root);
+            preOrder(root.children[0]);
+            preOrder(root.children[1]);
+        }
+    }
+    function inOrder(root) {
+        if(root){
+            inOrder(root.children[0]);
+            showNode(root);
+            inOrder(root.children[1]);
+        }
+    }
+    function postOrder(root) {
+        if(root){
+            postOrder(root.children[0]);
+            postOrder(root.children[1]);
+            showNode(root);
+        }
+    }
+    btnPreOrder.addEventListener("click",function(){
+        timer = 0;
+        preOrder(root);
+    },false);
+    btnInOrder.addEventListener("click",function(){
+        timer = 0;
+        inOrder(root);
+    },false);
+    btnPostOrder.addEventListener("click",function(){
+        timer = 0;
+        postOrder(root);
+    },false);
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3-4</title>
+  <style>
+    * {margin: 0;padding: 0;}
+    #parent {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 60px auto;
+      border: 2px solid #333;
+    }
+    .children {
+      box-sizing: border-box;
+      float: left;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    #special {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10%;
+      height: 10%;
+      background-color: #f33;
+      box-sizing: border-box;
+      border-color: #33f;
+      border-style: solid;
+      border-width: 6px 0 0 0;
+      -webkit-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+    }
+    .row, .col {
+      position: absolute;
+    }
+    .row> .children, .col> .children {
+      border: none;
+    }
+    .row {
+      height: 40px;
+      width: 400px;
+      top: -40px;
+      left: 0;
+    }
+    .col {
+      height: 400px;
+      width: 40px;
+      left: -40px;
+      top: 0;
+    }
+    .control {
+      position: absolute;
+      bottom: -60px;
+      left: 50px;
+      height: 40px;
+      width: 300px;
+      text-align: center;
+    }
+    .control> button {
+      width: 60px;
+      height: 30px;
+      font-size: 18px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="parent">
+    <div class="row">
+      <div class="children">1</div>
+      <div class="children">2</div>
+      <div class="children">3</div>
+      <div class="children">4</div>
+      <div class="children">5</div>
+      <div class="children">6</div>
+      <div class="children">7</div>
+      <div class="children">8</div>
+      <div class="children">9</div>
+      <div class="children">10</div>
+    </div>
+    <div class="col">
+      <div class="children">1</div>
+      <div class="children">2</div>
+      <div class="children">3</div>
+      <div class="children">4</div>
+      <div class="children">5</div>
+      <div class="children">6</div>
+      <div class="children">7</div>
+      <div class="children">8</div>
+      <div class="children">9</div>
+      <div class="children">10</div>
+    </div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div class="children"></div>
+    <div id="special"></div>
+    <div class="control"><button id="go">前进</button><button id="left">左转</button><button id="right">右转</button><button id="back">调头</button><button id="moveup">上移</button><button id="moveleft">左移</button><button id="moveright">右移</button><button id="movedown">下移</button><button id="goup">向上</button><button id="goleft">向左</button><button id="goright">向右</button><button id="godown">向下</button></div>
+  </div>
+  <script>
+    window.onload = function(){
+      var sep = {
+        unit : 40,
+        sBorder: {top:"6px 0 0 0",right:"0 6px 0 0",bottom:"0 0 6px 0",left:"0 0 0 6px"},
+        dirList: ["top","right","bottom","left","top","right","bottom","left"],
+        init: function(){
+          var This = this;
+          this.obj = document.getElementById('special');
+          this.left = 0;
+          this.top = 0;
+          this.direct = "right";
+          document.getElementById("go").addEventListener("click",function(){
+            This.move();
+            This.refresh();
+          },false);
+          document.getElementById("moveup").addEventListener("click",function(){
+            This.move("top");
+            This.refresh();
+          },false);
+          document.getElementById("moveright").addEventListener("click",function(){
+            This.move("right");
+            This.refresh();
+          },false);
+          document.getElementById("movedown").addEventListener("click",function(){
+            This.move("bottom");
+            This.refresh();
+          },false);
+          document.getElementById("moveleft").addEventListener("click",function(){
+            This.move("left");
+            This.refresh();
+          },false);
+          document.getElementById("back").addEventListener("click",function(){
+            This.turn(2);
+            This.refresh();
+          },false);
+          document.getElementById("right").addEventListener("click",function(){
+            This.turn(1);
+            This.refresh();
+          },false);
+          document.getElementById("left").addEventListener("click",function(){
+            This.turn(-1);
+            This.refresh();
+          },false);
+          document.getElementById("goup").addEventListener("click",function(){
+            This.direct = "top";
+            This.move("top");
+            This.refresh();
+          },false);
+          document.getElementById("goright").addEventListener("click",function(){
+            This.direct = "right";
+            This.move("right");
+            This.refresh();
+          },false);
+          document.getElementById("godown").addEventListener("click",function(){
+            This.direct = "bottom";
+            This.move("bottom");
+            This.refresh();
+          },false);
+          document.getElementById("goleft").addEventListener("click",function(){
+            This.direct = "left";
+            This.move("left");
+            This.refresh();
+          },false);
+        },
+        refresh: function(){
+          this.obj.style.left = this.left * this.unit + "px";
+          this.obj.style.top = this.top * this.unit + "px";
+          this.obj.style.borderWidth = this.sBorder[this.direct];
+        },
+        move: function(d){
+          var forward = d? d:this.direct;
+          if (forward == "left") {
+            if(this.left >=1){
+              this.left -= 1;
+            }else {
+              alert("左侧超限");
+            };
+          }else if (forward == "right") {
+            if(this.left <=8){
+              this.left += 1;
+            }else {
+              alert("右侧超限");
+            };
+          }else if (forward == "top") {
+            if(this.top >=1){
+              this.top -= 1;
+            }else {
+              alert("上部超限");
+            };
+          }else if (forward == "bottom") {
+            if(this.top <=8){
+              this.top += 1;
+            }else {
+              alert("下部超限");
+            };
+          };
+        },
+        turn: function(dirN){
+          var curDirN = this.dirList.indexOf(this.direct);
+          switch (dirN) {
+            case 1:
+              if(curDirN == 3){curDirN = -1};
+              break;
+            case -1:
+              if(curDirN == 0){curDirN = 4};
+              break;
+            case 2:
+              if(curDirN > 1){curDirN -= 4};
+              break;
+          }
+          this.direct = this.dirList[curDirN+dirN];
+        }
+      };
+      sep.init();
+      sep.refresh();
+      // sep.forward();
+      // sep.trun();
+      // sep.move();
+      // sep.turnmove();
+    }
+  </script>
+</body>
+</html>

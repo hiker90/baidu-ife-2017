@@ -1,0 +1,665 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select::-ms-expand { display: none; }
+button {outline: none;border: none;}
+a {
+  text-decoration: none;
+  color: #323232;
+}
+input, button, textarea {
+  border: none;
+  outline: none;
+}
+* {
+  box-sizing: border-box;
+  font: 14px/1.1 Microsoft Yahei;
+}
+html > body {
+  background-color: #ccc;
+}
+/*头部*/
+#header {
+  width: 100%;
+  height: 56px;
+  padding: 0 50px;
+  background-color: #228ABF;
+}
+#header .brand {
+  float: left;
+  height: 100%;
+  width: 36px;
+  background: url(logo.png) center center no-repeat;
+}
+#search {
+  position: relative;
+  float: right;
+  width: 312px;
+  height: 28px;
+  margin-top: 14px;
+  margin-right: 20px;
+  overflow: hidden;
+  font: 20px/28px Microsoft Yahei;
+  border-radius: 14px;
+  background-color: #fff;
+}
+#search> button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 28px;
+  background: url(search.png) center center no-repeat;
+}
+#search > input {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 280px;
+  height: 28px;
+  padding: 0 10px;
+  line-height: 28px;
+}
+#header> a {
+  float: right;
+  display: block;
+  padding-left: 20px;
+  margin-right: 40px;
+  font: 12px/56px 黑体;
+  color: #fff;
+  background: url(login.png) left center no-repeat;
+}
+/*内容区*/
+#main {
+  position: relative;
+  width: 1280px;
+  height: 1212px;
+  margin: 0 auto 18px;
+  overflow: hidden;
+  background-color: #EDEDED;
+}
+/*侧栏*/
+.aside {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 260px;
+  background-color: #2A2E3D;
+  color: #6D8095;
+  font: 12px/18px 黑体;
+}
+.aside a {
+  color: #6D8095;
+}
+.aside> div, .aside> table {
+  margin-left: 40px;
+}
+.aside> ul > li {
+  padding-left: 40px;
+}
+
+.user {
+  height: 90px;
+  padding: 16px 0;
+}
+.user .user-img {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  padding: 5px;
+  background-color: #B9BABE;
+  border: 1px solid #B9BABE;
+  border-radius: 50px;
+  vertical-align: middle;
+}
+.user .username {
+  display: inline-block;
+  margin-left: 20px;
+  font: 16px/20px 黑体;
+  color: #F6F5F4;
+}
+
+.aside > table {
+  width: 160px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+.aside > table a {
+  display: block;
+  text-align: center;
+  font: 12px/18px 宋体;
+}
+.aside > table td:first-child {
+  border-right: 1px solid #6D8095;
+}
+.aside > table .num {
+  font: bold 16px/20px 宋体;
+}
+
+.aside >ul >li.active {
+  background-color: #393E4E;
+}
+.aside li a.active {
+  color: #fff !important;
+}
+.aside >ul >li > a {
+  display: block;
+  padding-left: 24px;
+  background: url(ico.png) no-repeat;
+  line-height: 42px;
+}
+.aside .figure {
+  background-position: 0px -100px;
+}
+.aside .myfav {
+  background-position: 0px -268px;
+}
+.aside .share {
+  background-position: 0px -142px;
+}
+.aside .gallery {
+  background-position: 0px -268px;
+}
+.aside .growth {
+  background-position: 0px -268px;
+}
+.aside .account {
+  background-position: 0px -308px;
+}
+.aside #folder> li {
+  margin-left: 24px;
+  padding-left: 16px;
+}
+.aside span.drop {
+  position: absolute;
+  top: 0;
+  left: -15px;
+  display: block;
+  width: 15px;
+  height: 20px;
+  background: url(sm-arrow.png) no-repeat;
+  background-position: 0px 9px;
+}
+.aside #doc> li {
+  margin-left: 14px;
+}
+.aside #folder a {
+  display: block;
+  padding-left: 16px;
+  background: url(ico.png) no-repeat;
+  line-height: 28px;
+}
+.aside #folder>li>a {
+  position: relative;
+  background-position: 0px -232px;
+}
+.aside #folder>li>a.active {
+  background-position: 0px -190px;
+}
+.aside #folder>li> a.active> span.drop {
+  background-position: 0px -20px;
+}
+.aside #doc>li>a {
+  background-position: 0px -64px;
+}
+.aside #doc>li>a.active {
+  background-position: 0px -22px;
+}
+/*内容*/
+.content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1020px;
+  padding: 50px 70px 0 60px;
+}
+.content> div {
+  float: left;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+/*面包屑*/
+.content .bread {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  padding-left: 24px;
+  margin-bottom: 20px;
+  border: none;
+}
+.bread, .bread >a {
+  font: 12px/30px 黑体;
+  color: #AAAAA9;
+}
+.bread >a:last-child {
+  color: #2189BF;
+}
+/*条件搜索*/
+.content .conditions {
+  width: 100%;
+}
+.conditions>table{
+  height: 86px;
+  color: #AAAAA9;
+  font: 12px/18px 黑体;
+}
+.conditions td {
+  vertical-align: top;
+  line-height: 30px;
+  padding: 13px 0;
+}
+.conditions select {
+  background: #fff url(se-arrow.png) 90% center no-repeat;
+  border: 1px solid #ccc;
+  color: #323232;
+  height: 25px;
+  padding-left: 5px;
+  margin: 0 10px;
+  font: 12px/24px 黑体;
+  text-align: left;
+}
+#item, #days, #people {
+  width: 70px;
+}
+#buyer, #seller, #date, #deals {
+  width: 120px;
+}
+.conditions td {
+  padding-left: 28px;
+}
+.conditions td:nth-child(2) {
+  position: relative;
+  padding-right: 20px;
+}
+.conditions td > .switch {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 27px;
+  height: 38px;
+  margin-top: -19px;
+  background: url(switch.png) right center no-repeat;
+}
+.conditions td:last-child {
+  vertical-align: middle;
+}
+.conditions td> button {
+  width: 48px;
+  height: 26px;
+  font: 12px/26px 黑体;
+  color: #fff;
+  background-color: #388BC2;
+  border-radius: 4px;
+}
+/*往期数据*/
+.content .period {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+.period ul {
+  width: 100%;
+  height: 65px;
+}
+.period li{
+  float: left;
+  height: 65px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.period li+li {
+  margin-left: 5px;
+}
+.period li > a {
+  width: 108px;
+  height: 65px;
+  display: block;
+  padding-top: 8px;
+  border-top: 3px solid #FFF;
+  text-align: center;
+  color: #AAAAA9;
+}
+.period li > a.active {
+  border-top: 3px solid #4388c8;
+}
+.period li .time {
+  font: 12px/18px Microsoft Yahei;
+  color: #323232;
+}
+.period li .amount {
+  font: 21px/28px Microsoft Yahei;
+  color: #EB6400;
+}
+.period .left, .period .right {
+  width: 10px;
+  margin: 0 9px;
+  border: none;
+  background: url(big-arrow.png) left center no-repeat;
+}
+.period .right {
+  background-position: right center;
+}
+.period .history {
+  display: block;
+  width: 128px;
+  color: #535353;
+  padding: 0 18px;
+  text-align: right;
+  font: 12px/65px Microsoft Yahei;
+  background: url(history.png) 18px center no-repeat;
+}
+/*出库统计*/
+.content .count {
+  background-color: transparent;
+  border: none;
+}
+.count> h5 {
+  font: 12px/19px Microsoft Yahei;
+  color: #323232;
+}
+.count ul {
+  height: 90px;
+}
+.count li {
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 71px;
+  padding: 12px 12px 12px 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.count li+li {
+  margin-left: 30px;
+}
+.count li:first-child {
+  border-left: 3px solid #43B29E;
+}
+.count li:nth-child(2) {
+  border-left: 3px solid #388AC1;
+}
+.count li:nth-child(3) {
+  border-left: 3px solid #D04A36;
+}
+.count li:nth-child(4) {
+  border-left: 3px solid #D04A36;
+}
+.count li:nth-child(1) .num-fig {
+  background-color: #43B29E;
+}
+.count li:nth-child(2) .num-fig {
+  background-color: #388AC1;
+}
+.count li:nth-child(3) .num-fig {
+  background-color: #D04A36;
+}
+.count li:nth-child(4) .num-fig {
+  background-color: #D04A36;
+}
+.count li .num {
+  color: #323232;
+  font: 12px/27px 黑体;
+}
+.count li p {
+  color: #AAAAA9;
+  font: 10px/15px 黑体;
+}
+.count li .num-fig {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 61px;
+  height: 47px;
+}
+/*panel*/
+.panel {
+  display: inline-block;
+  height: 356px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.panel-title {
+  height: 38px;
+  font: 12px/38px 黑体;
+  color: #AAAAA9;
+  padding: 0 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #F4F5F7;
+}
+.panel-body {
+  position: relative;
+  padding: 10px 20px 20px;
+}
+#project-tab{
+  width: 530px;
+  margin-right: 10px;
+}
+#project-search {
+  width: 350px;
+}
+#calendar {
+  width: 350px;
+  margin-right: 8px;
+}
+#ranking {
+  width: 530px;
+}
+
+/*项目统计*/
+#project-tab ul {
+  z-index: 2000;
+  position: absolute;
+  top: 10px;
+}
+#project-tab li {
+  float: left;
+  margin-right: 6px;
+}
+#project-tab li a {
+  display: block;
+  width: 82px;
+  height: 28px;
+  font: 12px/28px Microsoft Yahei;
+  color: #535353;
+  text-align: center;
+  background-color: #EDEDF0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 5px 5px 0 0;
+}
+#project-tab li a:hover {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+}
+#project-tab .tab:target {
+  z-index: 1000;
+}
+#project-tab .tab {
+  position: absolute;
+  top: 37px;
+  overflow: hidden;
+  padding: 26px 36px;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 5px;
+}
+#project-tab .tab > table {
+  width: 402px;
+  height: 184px;
+}
+#project-tab .tab td {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  text-align: center;
+  font: 12px 宋体;
+  color: #535353;
+}
+/*项目搜索*/
+#project-search table {
+  width: 274px;
+  height: 240px;
+  margin: 0 10px;
+}
+#project-search td {
+  padding: 0 1em;
+  border-bottom: 1px solid #ccc;
+}
+#project-search label {
+  font: 12px/19px Microsoft Yahei;
+  color: #C2C2C1;
+}
+#project-search input, #project-search textarea {
+  font: 12px/19px Microsoft Yahei;
+  color: #535353;
+}
+#project-search form> p {
+  display: block;
+  margin: 0 10px;
+  width: 274px;
+  font: 12px/40px Microsoft Yahei;
+  color: #C2C2C1;
+}
+#project-search form> p input {
+  vertical-align: middle;
+  background: url(deal.png) center center no-repeat;
+}
+#project-search form button {
+  float: right;
+  font: 12px/26px Microsoft Yahei;
+  color: #FFF;
+  width: 51px;
+  height: 26px;
+  margin-top: 5px;
+  background-color: #388BC2;
+  text-align: center;
+}
+/*日历*/
+#calendar select {
+  background: #fff url(se-arrow.png) 90% center no-repeat;
+  border: 1px solid #ccc;
+  color: #323232;
+  height: 23px;
+  padding: 0 20px 0 0;
+  margin-right: 6px;
+  width: 74px;
+  font: 12px/23px 黑体;
+  text-align: left;
+}
+#calendar form > a {
+  display: inline-block;
+  width: 66px;
+  height: 23px;
+  text-align: center;
+  font: 12px/23px 黑体;
+  border: 1px solid #ccc;
+}
+#calendar table {
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #388BC2;
+}
+#calendar table th {
+  height: 30px;
+  font: 12px/30px 黑体;
+  color: #535353;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+#calendar table td {
+  height: 45px;
+  text-align: center;
+  font: 12px 黑体;
+  color: #323232;
+}
+/*排行*/
+#ranking table {
+  width: 450px;
+  height: 280px;
+}
+#ranking th {
+  font: 13px 黑体;
+  color: #221814;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+#ranking td {
+  font: 12px 黑体;
+  color: #323232;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+#ranking tr>th:first-child, #ranking tr>td:first-child {
+  width: 66px;
+}
+#ranking tr>th:last-child, #ranking tr>td:last-child {
+  text-align: left;
+  padding-left: 38px;
+  width: 290px;
+}
+#ranking meter {
+  display: inline-block;
+  height: 6px;
+  width: 170px;
+  vertical-align: middle;
+}
+
+#ranking tr:hover>td {
+  background-color: #ccc;
+}

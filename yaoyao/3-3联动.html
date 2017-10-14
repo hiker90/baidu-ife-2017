@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<title>3-3</title>
+<style>
+*{
+  padding:0;
+  margin:0;
+}
+body{
+  font-size: 18px;
+}
+div {
+  width: 500px;
+  margin: 60px auto;
+}
+p {
+  display: inline-block;
+  text-align: center;
+  width: 500px;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+select {
+  font: 18px/24px 宋体;
+  margin-left: 10px;
+  padding: 2px 5px;
+}
+input[type=text] {
+  font: 18px/24px 宋体;
+  height: 24px;
+  padding: 2px 5px;
+  width: 230px;
+}
+#p2 {
+  display: none;
+}
+</style>
+</head>
+<body>
+<div>
+  <form>
+    <p>
+      <input id="inschool" type="radio" name="stu" checked="checked">
+      <label for="incshool">在校生 </label>
+      <input id="outschool" type="radio" name="stu">
+      <label for="outschool">非在校生 </label>
+    </p>
+    <p id="p1">
+      <label>学校</label>
+      <select id="city" name="city">
+      </select>
+      <select id="school" name="school">
+      </select>
+    </p>
+    <p id="p2">
+      <label for="company">就业单位 </label>
+      <input id="company" type="text">
+    </p>
+  </form>
+</div>
+<script type="text/javascript">
+window.onload = function(){
+  var inSchool = document.getElementById("inschool");
+  var outSchool = document.getElementById("outschool");
+  var p1 = document.getElementById("p1");
+  var p2 = document.getElementById("p2");
+  var city = document.getElementById("city");
+  var school =  document.getElementById("school");
+  var data = [
+    {city:"城市",school:["学校"]},
+    {city:"北京",school:["北京大学","清华大学","中国人民大学","北京师范大学"]},
+    {city:"上海",school:["复旦大学","上海交通大学","同济大学","华东理工大学"]},
+    {city:"南京",school:["南京大学","江苏大学","南京航空航天大学","东南大学"]},
+    {city:"武汉",school:["武汉大学","华中科技大学","中国地质大学","武汉理工大学"]}
+  ];
+
+  inSchool.onchange = function(){
+    p1.style.display = "inline-block";
+    p2.style.display = "none";
+  }
+  outSchool.onchange = function(){
+    p1.style.display = "none";
+    p2.style.display = "block";
+  }
+
+  for(var i=0;i<data.length;i++){
+    var newCity = document.createElement("option");
+    newCity.value = i;
+    newCity.innerHTML = data[i].city;
+    city.appendChild(newCity);
+  };
+
+  city.onchange = function(){
+    var curCity = city.value;
+    while(school.hasChildNodes()){
+      school.removeChild(school.firstChild);
+    };
+    for(var j=0;j<data[curCity]["school"].length;j++){
+      var newSchool =document.createElement("option");
+      newSchool.value = j;
+      newSchool.innerHTML = data[curCity]["school"][j];
+      school.appendChild(newSchool);
+    }
+  }
+  city.onchange();
+}
+</script>
+</body>

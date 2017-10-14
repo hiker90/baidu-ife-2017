@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1-9</title>
+  <link rel="stylesheet" href="1-9img/1-9.css">
+</head>
+<body>
+  <div id="header">
+    <div class="brand"></div>
+    <a href="#">登录</a>
+    <form action="" id="search">
+      <button></button><input type="text">
+    </form>
+  </div>
+  <div id="main">
+    <div class="aside">
+      <div class="user"><img src="" alt="" class="user-img"><a href="#" class="username">ABC124</a></div>
+      <table>
+        <tr>
+          <td><a href="#" class="fav"><span class="num">110</span><br/>收藏</a></td>
+          <td><a href="#" class="fans"><span class="num">313</span><br/>粉丝</a></td>
+        </tr>
+      </table>
+      <ul>
+        <li class="active"><a href="#folder" class="figure active">个人报表</a>
+          <ul id="folder">
+            <li><a href="#"><span class="drop"></span>文件一</a></li>
+            <li><a href="#doc" class="active"><span class="drop"></span>文件二</a>
+              <ul id="doc">
+                <li><a href="#" class="active">文档一</a></li>
+                <li><a href="#">文档二</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><span class="drop"></span>文件三</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="myfav">个人收藏</a></li>
+        <li><a href="#" class="share">我的分享</a></li>
+        <li><a href="#" class="gallery">图库</a></li>
+        <li><a href="#" class="growth">成长记录</a></li>
+        <li><a href="#" class="account">账户信息</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="bread">
+        <a href="#">网站</a> /
+        <a href="#">个人报表</a> /
+        <a href="#">文件一</a> /
+        <a href="#">文档一</a>
+      </div>
+      <div class="conditions">
+        <table>
+          <tr>
+            <td>查询项 <select name="" id="item"><option value="1">第一项</option>
+            <option value="2">第二项</option>
+            <option value="3">第三项</option></select></td>
+            <td>买方 <select name="" id="buyer"><option value="1">小A</option>
+            <option value="2">小B</option>
+            <option value="3">小C</option></select>
+            <br>卖方 <select name="" id="seller"><option value="1">小A</option>
+            <option value="2">小B</option>
+            <option value="3">小C</option></select>
+            <div class="switch"></div></td>
+
+            <td>日期 <select name="" id="date"></select>
+            总耗时 <select name="" id="days">
+              <option value="">1天</option>
+              <option value="">2天</option>
+              <option value="">3天</option>
+            </select><br>
+            人数 <select name="" id="people">
+              <option value="">10人</option>
+              <option value="">8人</option>
+              <option value="">6人</option>
+            </select>
+            成交项 <select name="" id="deals"><option value="">10项</option>
+            <option value="">10项</option>
+            <option value="">10项</option></select></td>
+
+            <td><button id="con-search">搜索</button></td>
+          </tr>
+        </table>
+      </div>
+      <div class="period">
+
+        <ul>
+          <li><a href="" class="left"></a></li>
+          <li><a href="" class="active">
+              <p class="time">10:00 am</p>
+              <p>¥<span class="amount">1400</span></p>
+            </a></li>
+          <li><a href="">
+              <p class="time">10:00 am</p>
+              <p>¥<span class="amount">1400</span></p>
+            </a></li>
+          <li><a href="">
+              <p class="time">10:00 am</p>
+              <p>¥<span class="amount">1400</span></p>
+            </a></li>
+          <li><a href="">
+              <p class="time">10:00 am</p>
+              <p>¥<span class="amount">1400</span></p>
+            </a></li>
+          <li><a href="">
+              <p class="time">10:00 am</p>
+              <p>¥<span class="amount">1400</span></p>
+            </a></li>
+          <li><a href="">
+              <p class="time">10:00 am</p>
+              <p>¥<span class="amount">1400</span></p>
+            </a>
+          </li>
+          <li><a href="" class="right"></a></li>
+          <li><a href="" class="history">历史查询</a></li>
+        </ul>
+      </div>
+      <div class="count">
+        <h5>2016年4月统计</h5>
+        <ul class="items">
+          <li>
+            <p><span class="num">133111</span><br>成交量</p>
+            <div class="num-fig"></div>
+          </li>
+          <li>
+            <p><span class="num">133111</span><br>成交量</p>
+            <div class="num-fig"></div>
+          </li>
+          <li>
+            <p><span class="num">133111</span><br>成交量</p>
+            <div class="num-fig"></div>
+          </li>
+          <li>
+            <p><span class="num">133111</span><br>成交量</p>
+            <div class="num-fig"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="panel" id="project-tab">
+        <div class="panel-title"><h5>第一组项目</h5></div>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#tab1">项目1</a></li>
+            <li><a href="#tab2">项目1</a></li>
+            <li><a href="#tab3">项目1</a></li>
+            <li><a href="#tab4">项目1</a></li>
+            <li><a href="#tab5">项目1</a></li>
+          </ul>
+          <div id="tab1" class="tab">
+            <table>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+            </table>
+          </div>
+          <div id="tab2" class="tab">
+            <table>
+              <tr>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+              </tr>
+              <tr>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+              </tr>
+              <tr>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+              </tr>
+              <tr>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+              </tr>
+              <tr>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+              </tr>
+              <tr>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+                <td>购买材料2</td>
+              </tr>
+            </table>
+          </div>
+          <div id="tab3" class="tab">
+            <table>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+            </table>
+          </div>
+          <div id="tab4" class="tab">
+            <table>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+            </table>
+          </div>
+          <div id="tab5" class="tab">
+            <table>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+              <tr>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+                <td>购买材料</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel" id="project-search">
+        <div class="panel-title"><h5>项目搜索</h5></div>
+        <div class="panel-body">
+          <form action="">
+            <table>
+              <tr>
+                <td><label>标题</label><br>
+                <input type="text" value="项目报表三" style="width:80px;"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td style="width:94px;border-right:1px solid #ccc;"><label>价格</label><br>
+                <input type="text" value="¥158" style="width:80px;"></td>
+                <td><label>负责人</label><br>
+                <input type="text" value="小A" style="width:80px;"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><label>详细描述</label><br>
+                <textarea style="width:100%;height:124px;resize:none;">该项目目前负责人是……</textarea></td>
+              </tr>
+            </table>
+            <p><input type="checkbox" checked="checked"> 遵守保密协议<button>搜索</button></p>
+          </form>
+        </div>
+      </div>
+      <div class="panel" id="calendar">
+        <div class="panel-title"><h5>日历</h5></div>
+        <div class="panel-body">
+          <form action="" id="select-date">
+            <select name="" id="year"><option value="">2016年</option></select><select name="" id="month"><option value="">4月</option></select><select name="" id="day"><option value="">标注日期</option></select><a href="">返回今天</a>
+          </form>
+          <table>
+            <tr>
+               <th>一</th>
+               <th>二</th>
+               <th>三</th>
+               <th>四</th>
+               <th>五</th>
+               <th>六</th>
+               <th>七</th>
+             </tr>
+             <tr>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+             </tr>
+             <tr>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+             </tr>
+             <tr>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+             </tr>
+             <tr>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+             </tr>
+             <tr>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+               <td>1<br>愚人节</td>
+             </tr>
+          </table>
+        </div>
+      </div>
+      <div class="panel" id="ranking">
+        <div class="panel-title"><h5>汽车行业品牌榜</h5></div>
+        <div class="panel-body">
+          <table>
+            <tr>
+              <th>排名</th>
+              <th>品牌</th>
+              <th>搜索指数</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="4891201" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>大众</td>
+              <td>48912001 <meter value="48912001" max="50000000"></meter></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
